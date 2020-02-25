@@ -1,3 +1,4 @@
+package ru.spbstu.telematics.java;
 
 import java.util.Iterator;
 
