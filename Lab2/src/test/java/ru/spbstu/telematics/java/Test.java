@@ -8,11 +8,11 @@ public class Tests {
 
 	@Test
 	public void test() {
-		MyQueue<Integer> n_val = new MyQueue<Integer>(10);
+		MyQueue<Integer> int_q = new MyQueue<Integer>(10);
 		for(int i = 0; i<11;i++) {
-			n_val.insert(i);
+			int_q.insert(i);
 		}
-		assertEquals(11,n_val.size());
 	}
 
 }
+
