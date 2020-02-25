@@ -3,6 +3,7 @@ package ru.spbstu.telematics.java;
 import java.io.IOException;
 import java.util.Iterator;
 
+
 public class Main {
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		MyQueue<Integer> q = new MyQueue<Integer>(10);

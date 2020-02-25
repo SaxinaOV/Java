@@ -2,6 +2,7 @@ package ru.spbstu.telematics.java;
 
 import java.util.Iterator;
 
+
 public class MyQueue<T> {
 	T[] queue;
 	private int max_size;
