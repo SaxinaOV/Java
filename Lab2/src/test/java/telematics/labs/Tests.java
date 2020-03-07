@@ -1,4 +1,4 @@
-package ru.spbstu.telematics.java;
+package telematics.labs;
 
 import static org.junit.Assert.*;
 
@@ -8,11 +8,12 @@ public class Tests {
 
 	@Test
 	public void test() {
-		MyQueue<Integer> int_q = new MyQueue<Integer>(10);
+		MyQueue<Integer> q = new MyQueue<Integer>(11);
 		for(int i = 0; i<11;i++) {
-			int_q.insert(i);
+			q.insert(i);
 		}
+        assertEquals(11,q.size());
+        
 	}
 
 }
-

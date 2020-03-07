@@ -1,4 +1,4 @@
-package ru.spbstu.telematics.java;
+package telematics.labs;
 
 import java.util.Iterator;
 
@@ -7,8 +7,8 @@ public class MyQueue<T> {
 	private int max_size;
 	private int nElement;
 
-	public MyQueue(int max_s) {
-		max_size = max_s;
+	public MyQueue(int size) {
+		max_size = size;
 		queue = (T[]) new Object[max_size];
 		nElement = 0;
 	}
@@ -53,13 +53,11 @@ public class MyQueue<T> {
 
 			@Override
 			public boolean hasNext() {
-				// TODO Auto-generated method stub
 				return (index < len);
 			}
 
 			@Override
 			public T next() {
-				// TODO Auto-generated method stub
 				return queue[index++];
 			}
 
