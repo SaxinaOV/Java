@@ -67,7 +67,7 @@ public class TrapezoidalIntegration {
                 second = firstDot + lengthOfInterval * (i+1);
             else
                 second = secondDot;
-            sectionIntegrator integrator = new sectionIntegrator(first, second, i);//создаем наш интегратор интервала
+            sectionIntegrator integrator = new sectionIntegrator(first, second, i);
             Thread thread = new Thread(integrator);
             thread.start();
         }
