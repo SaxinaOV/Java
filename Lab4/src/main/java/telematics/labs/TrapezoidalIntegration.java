@@ -59,7 +59,6 @@ public class TrapezoidalIntegration {
     }
 
     static void integrate() throws ExecutionException, InterruptedException {
-
         for (int i = 0; i < quantityOfThreads; i++) {
             int first = firstDot + lengthOfInterval * i;
             int second;
