@@ -11,9 +11,9 @@ public class TrapezoidalIntegration {
     static double lengthOfSection = 0.00001;
     static int lengthOfInterval = (secondDot - firstDot)/(quantityOfThreads);
     static double[] array = new double[quantityOfThreads];
+    static double result = 0;
 
     static Runnable barrierAction = new Runnable() { public void run() {
-        double result = 0;
         for(int i = 0; i<quantityOfThreads; i++ ){
             result += array[i];
         }
