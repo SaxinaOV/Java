@@ -7,13 +7,14 @@ public class TrapezoidalIntegration {
 
     static int firstDot = 1;
     static int secondDot = 75;
-    static int quantityOfThreads = 1;
+    static int quantityOfThreads = 32;
     static double lengthOfSection = 0.00001;
     static int lengthOfInterval = (secondDot - firstDot)/(quantityOfThreads);
     static double[] array = new double[quantityOfThreads];
+    static double result = 0;
 
     static Runnable barrierAction = new Runnable() { public void run() {
-        double result = 0;
+        
         for(int i = 0; i<quantityOfThreads; i++ ){
             result += array[i];
         }
@@ -67,7 +68,7 @@ public class TrapezoidalIntegration {
                 second = firstDot + lengthOfInterval * (i+1);
             else
                 second = secondDot;
-            sectionIntegrator integrator = new sectionIntegrator(first, second, i);//создаем наш интегратор интервала
+            sectionIntegrator integrator = new sectionIntegrator(first, second, i);
             Thread thread = new Thread(integrator);
             thread.start();
         }
