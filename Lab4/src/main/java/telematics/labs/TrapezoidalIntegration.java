@@ -14,7 +14,6 @@ public class TrapezoidalIntegration {
     static double result = 0;
 
     static Runnable barrierAction = new Runnable() { public void run() {
-        
         for(int i = 0; i<quantityOfThreads; i++ ){
             result += array[i];
         }
@@ -60,7 +59,6 @@ public class TrapezoidalIntegration {
     }
 
     static void integrate() throws ExecutionException, InterruptedException {
-
         for (int i = 0; i < quantityOfThreads; i++) {
             int first = firstDot + lengthOfInterval * i;
             int second;
