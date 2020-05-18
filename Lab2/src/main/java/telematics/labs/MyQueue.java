@@ -2,11 +2,13 @@ package telematics.labs;
 
 import java.util.Iterator;
 
-public class MyQueue<T> {
+
+public class MyQueue<T> implements IMyQueue<T>, Iterable<T>{
 	T[] queue;
 	private int max_size;
 	private int nElement;
 
+	//@SuppressWarnings("unchecked")
 	public MyQueue(int size) {
 		max_size = size;
 		queue = (T[]) new Object[max_size];
@@ -15,10 +17,7 @@ public class MyQueue<T> {
 
 	public void insert(T obj) {
 		if (nElement < max_size) {
-			for (int i = nElement; i >= 1; i--) {
-				queue[i] = queue[i - 1];
-			}
-			queue[0] = obj;
+			queue[nElement] = obj;
 			nElement++;
 		} else {
 			max_size += nElement;
@@ -35,32 +34,37 @@ public class MyQueue<T> {
 		return nElement;
 	}
 
-	public void remove() {
-		queue[nElement] = null;
+	public T remove() {
+		T a = queue[0];
+		queue[nElement-1] = null;
+		for (int i = 0; i < nElement-1; i++) {
+			queue[i] = queue[i+1];
+		}
 		nElement--;
+		return a;
 	}
 
 	public void print() {
 		for (int i = 0; i < nElement; i++) {
-			System.out.println(queue[i]);
+		System.out.println(queue[i]);
 		}
+	}
+	
+	public class MyIterator implements Iterator<T>{
+			
+		private int len = nElement;
+		private int index = 0;
+
+		public boolean hasNext() {
+			return (index < len);
+		}
+		public T next() {
+			return queue[index++];
+		}
+
 	}
 
 	public Iterator<T> iterator() {
-		return new Iterator<T>() {
-			private int len = nElement;
-			private int index = 0;
-
-			@Override
-			public boolean hasNext() {
-				return (index < len);
-			}
-
-			@Override
-			public T next() {
-				return queue[index++];
-			}
-
-		};
-	}
+        return new MyIterator();
+    }
 }
