@@ -15,7 +15,7 @@ public class Main{
         copyFile(from, to);
         in.close();
     }
-    public static void copyFile( String from, String to )throws IOException {
+    public static Boolean copyFile( String from, String to )throws IOException {
 
         File src = new File(from);
         File dest = new File(to);
@@ -23,13 +23,16 @@ public class Main{
         if(src.isFile()){
             if(!Files.exists(dest.toPath())) {
                 Files.copy(src.toPath(), dest.toPath());
+                return true;
             }
             else {
                 System.out.println("File already exists");
+                return true;
             }
         }
         else{
             System.out.println("File is not found");
+            return false;
         }
     }
 }
