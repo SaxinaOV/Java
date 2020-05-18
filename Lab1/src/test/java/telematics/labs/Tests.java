@@ -1,17 +1,14 @@
 package telematics.labs;
-
-import java.nio.file.Files;
-
-import static org.junit.Assert.*;
-
+import static telematics.labs.Main.copyFile;
 import org.junit.Test;
+import java.io.IOException;
 
-class Tests {
+
+public class Tests {
 
     @Test
-
-	public void test() {
-        copyFile();
+	public void test()throws IOException  {
+        copyFile("/home/olga/Books/s.txt",  "/home/olga/s.txt");
 	}
 
 }
