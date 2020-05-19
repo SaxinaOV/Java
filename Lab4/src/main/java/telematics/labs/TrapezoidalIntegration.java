@@ -21,6 +21,8 @@ public class TrapezoidalIntegration {
         System.out.println("Результат: " + result);
         long end=System.currentTimeMillis();
         System.out.println("Время: "+ (end - begin) + " мс");
+        //System.out.println("Разница:" + (Math.abs(result - 28.8230)<0.0001));
+
     }};
     static CyclicBarrier barrier = new CyclicBarrier(quantityOfThreads, barrierAction);
 
@@ -42,7 +44,7 @@ public class TrapezoidalIntegration {
 
         public void run() {
             try {
-                double i = firstPoint + lengthOfSection;
+                double i = firstPoint;
                 while(!((Math.abs(i - secondPoint))<0.000001)){
                     //array[sectionNumber] += (function(i)+function(i-1))/2*lengthOfSection;
                     array[sectionNumber] += function(i)*lengthOfSection;
