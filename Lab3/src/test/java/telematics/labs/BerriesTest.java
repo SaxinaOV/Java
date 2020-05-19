@@ -1,6 +1,11 @@
 package telematics.labs;
+
+import static org.junit.Test.*;
+
+import org.junit.Test;
+
 import static org.junit.Assert.*;
-import static org.junit.Assert.assertEquals;
+
 
 public class BerriesTest {
 
@@ -14,8 +19,9 @@ public class BerriesTest {
         T2.start();
         T1.join();
         T2.join();
-        int result = field.getQuantityOfBerries() + N1.getBerries() + N2.getBerries();
+        int result = Berries.Field.getQuantityOfBerries() + N1.getBerries() + N2.getBerries();
         assertEquals(200, result);
+
     }
 
 }
