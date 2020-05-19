@@ -7,7 +7,7 @@ public class TrapezoidalIntegration {
 
     static int firstDot = 1;
     static int secondDot = 75;
-    static int quantityOfThreads = 32;
+    static int quantityOfThreads = 8;
     static double lengthOfSection = 0.00001;
     static int lengthOfInterval = (secondDot - firstDot)/(quantityOfThreads);
     static double[] array = new double[quantityOfThreads];
@@ -42,8 +42,9 @@ public class TrapezoidalIntegration {
 
         public void run() {
             try {
-                double i = firstPoint;
+                double i = firstPoint + lengthOfSection;
                 while(!((Math.abs(i - secondPoint))<0.000001)){
+                    //array[sectionNumber] += (function(i)+function(i-1))/2*lengthOfSection;
                     array[sectionNumber] += function(i)*lengthOfSection;
                     i+=lengthOfSection;
                 }
