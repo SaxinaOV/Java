@@ -19,6 +19,8 @@ public class MyQueue<T> implements IMyQueue<T>, Iterable<T>{
 		if (nElement < max_size) {
 			queue[nElement] = obj;
 			nElement++;
+			//queue[nElement+1] = null;
+			//nElement++;
 		} else {
 			max_size += nElement;
 			T[] tmp = (T[]) new Object[max_size];
@@ -36,10 +38,10 @@ public class MyQueue<T> implements IMyQueue<T>, Iterable<T>{
 
 	public T remove() {
 		T a = queue[0];
-		queue[nElement-1] = null;
 		for (int i = 0; i < nElement-1; i++) {
 			queue[i] = queue[i+1];
 		}
+		queue[nElement-1] = null;
 		nElement--;
 		return a;
 	}

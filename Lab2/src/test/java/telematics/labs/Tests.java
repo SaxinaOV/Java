@@ -30,7 +30,7 @@ public class Tests {
 		for(int i = 0; i<5;i++) {
 			q.add(i);
 		}
-		for(int i = 0; i<4;i++){
+		for(int i = 0; i<5;i++){
 			assertEquals(q.remove(), m_q.remove()); 
 		}
 	}

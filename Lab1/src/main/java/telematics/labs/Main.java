@@ -27,7 +27,7 @@ public class Main{
             }
             else {
                 System.out.println("File already exists");
-                return true;
+                return false;
             }
         }
         else{
