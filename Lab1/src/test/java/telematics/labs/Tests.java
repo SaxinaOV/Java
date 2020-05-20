@@ -14,7 +14,6 @@ public class Tests {
         String to = "/home/olga/MyFile";
 
         File newFile = new File("/home/olga/Books/MyFile");
-        boolean created = newFile.createNewFile();
         assertTrue(copyFile(from, to));
         File movedFile = new File("/home/olga/MyFile");
         movedFile.delete();  
